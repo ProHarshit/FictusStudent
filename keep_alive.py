@@ -42,7 +42,7 @@ def upload_file():
   return render_template('upload.html')
 
 def run():
-  app.run(host='0.0.0.0')
+  app.run(port=8501)
 
 def keep_alive():
     t = Thread(target=run)
