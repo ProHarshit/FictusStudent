@@ -1,0 +1,7 @@
+discord.py
+gspread
+google-generativeai
+pathlib
+streamlit
+Flask
+Werkzeug
