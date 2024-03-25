@@ -3,6 +3,7 @@ from werkzeug.utils import secure_filename
 from threading import Thread
 import os
 import gspread
+import streamlit as st
 
 app = Flask(__name__)
 
@@ -42,7 +43,7 @@ def upload_file():
   return render_template('upload.html')
 
 def run():
-  app.run(port=8501)
+  app.run()
 
 def keep_alive():
     t = Thread(target=run)
