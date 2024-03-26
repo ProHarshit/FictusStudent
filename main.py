@@ -157,7 +157,12 @@ async def say(interaction: discord.Interaction, option: str, name: str=None):
       wks = gc.create(name)
       list = list.replace(name, "")
       taskarray.remove(name)
-      await interaction.followup.send(f"Task **{name}** deleted")
+      file_path.unlink()
+      with open("variables.py", mode="w") as file:
+        file.write(f"""var = \"\"\"{list}\"\"\"""")
+        file.write(f"""\nvararray = {taskarray}""")
+        file.write(f"""\nans = {anskey}""")
+      await interaction.followup.send(f"**{name}** has been deleted")
     else:
       await interaction.followup.send(f"Task **{name}** not found")
   if option == "create":
