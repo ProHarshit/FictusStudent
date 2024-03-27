@@ -264,7 +264,7 @@ async def say(interaction: discord.Interaction, ques: str):
   await interaction.response.defer()
   response = model.generate_content(f"Answer the question {ques}",safety_settings=safety_settings)
   if response.parts:
-    await interaction.followup.send(f"Question is {ques}" /nAnswer is ) 
+    await interaction.followup.send(f"Question is {ques} /nAnswer is:/n") 
     for part in response.parts:
       await interaction.followup.send(part.text)
   else:
