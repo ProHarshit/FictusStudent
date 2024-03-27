@@ -6,7 +6,7 @@ from discord.ext import commands, tasks
 import discord.ui
 from variables import var, vararray, ans
 from arrays import paper
-from keep_alive import keep_alive
+from keep_alive1 import keep_alive
 from pathlib import Path
 import time
 import asyncio
