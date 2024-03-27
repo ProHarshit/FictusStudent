@@ -264,10 +264,11 @@ async def say(interaction: discord.Interaction, ques: str):
   await interaction.response.defer()
   response = model.generate_content(f"Answer the question {ques}",safety_settings=safety_settings)
   if response.parts:
+    await interaction.followup.send(f"Question is {ques}" /nAnswer is ) 
     for part in response.parts:
       await interaction.followup.send(part.text)
   else:
-    await interaction.followup.send("Answer is \n : " + response.text)
+    await interaction.followup.send(f"Question is {ques} \nAnswer is \n : " + response.text)
 
 @bot.tree.command(name="key",description="Set the answer key")
 @app_commands.describe(key="Type the answer key")
