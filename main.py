@@ -6,7 +6,7 @@ from discord.ext import commands, tasks
 import discord.ui
 from variables import var, vararray, ans
 from arrays import paper
-from keep_alive1 import keep_alive
+from keep_alive1 import run
 from pathlib import Path
 import time
 import asyncio
@@ -391,5 +391,9 @@ async def say(interaction: discord.Interaction):
       await interaction.followup.send(f"**{name} has scored {value1[3:-3]} out of {len(anskey)}**")
 
 
-keep_alive()
+@bot.tree.command(name="query",description="Ask the bot something from the book")
+async def hello(interaction: discord.Interaction):
+  await interaction.response.send_message(f"Hey {interaction.user.mention}! This is a slash command!", ephemeral=True)
+
+run()
 bot.run(TOKEN)
